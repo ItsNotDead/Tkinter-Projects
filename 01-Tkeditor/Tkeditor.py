@@ -1,12 +1,12 @@
-from Tkinter import *
-import tkFileDialog
-import tkMessageBox
+from tkinter import *
+from tkinter import filedialog
+from tkinter import messagebox
 import os
 
 root = Tk()
 root.geometry('800x500')
 root.title('Untitled - Tkeditor')
-root.iconbitmap('icons/pypad.ico')
+root.iconbitmap('.\icons\pypad.ico')
 
 def popup(event):
     cmenu.tk_popup(event.x_root, event.y_root, 0)
@@ -51,13 +51,13 @@ def toggle_highlight(event=None):
 
 #########################################################################
 def about():
-    tkMessageBox.showinfo("About", "A Editor using Tkinter by Leohc92")
+    messagebox.showinfo("About", "A Editor using Tkinter by Leohc92")
 
 def help_box(event=None):
-    tkMessageBox.showinfo("Help", "For help email to chenyu.wu@outlook.com", icon='question')
+    messagebox.showinfo("Help", "For help email to chenyu.wu@outlook.com", icon='question')
 
 def exit_editor():
-    if tkMessageBox.askokcancel("Quti", "Do you really want to quit?"):
+    if messagebox.askokcancel("Quti", "Do you really want to quit?"):
         root.destroy()
 root.protocol('WM_DELETE_WINDOW',exit_editor)
 
@@ -172,14 +172,14 @@ def save_as():
 
 ######################################################################
 #defining icons for compund menu demonstration
-newicon = PhotoImage(file='icons/new_file.gif')
-openicon = PhotoImage(file='icons/open_file.gif')
-saveicon = PhotoImage(file='icons/Save.gif')
-cuticon = PhotoImage(file='icons/Cut.gif')
-copyicon = PhotoImage(file='icons/Copy.gif')
-pasteicon = PhotoImage(file='icons/Paste.gif')
-undoicon = PhotoImage(file='icons/Undo.gif')
-redoicon = PhotoImage(file='icons/Redo.gif')
+newicon = PhotoImage(file='./icons/new_file.gif')
+openicon = PhotoImage(file='./icons/open_file.gif')
+saveicon = PhotoImage(file='./icons/Save.gif')
+cuticon = PhotoImage(file='./icons/Cut.gif')
+copyicon = PhotoImage(file='./icons/Copy.gif')
+pasteicon = PhotoImage(file='./icons/Paste.gif')
+undoicon = PhotoImage(file='./icons/Undo.gif')
+redoicon = PhotoImage(file='./icons/Redo.gif')
 
 #Define a menu bar
 menubar = Menu(root)
@@ -249,7 +249,7 @@ root.config(menu=menubar)
 shortcutbar = Frame(root, height=25)
 icons = ['new_file', 'open_file', 'save', 'cut', 'copy', 'paste', 'undo', 'redo', 'on_find', 'about']
 for i, icon in enumerate(icons):
-    tbicon = PhotoImage(file='icons/'+icon+'.gif')
+    tbicon = PhotoImage(file='./icons/'+icon+'.gif')
     cmd = eval(icon)
     toolbar = Button(shortcutbar, image=tbicon,  command=cmd)
     toolbar.image = tbicon  #http://effbot.org/tkinterbook/photoimage.htm
